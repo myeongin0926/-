@@ -5,11 +5,10 @@ const input = fs
   .trim()
   .split("\n");
 
-let result = "";
 input.forEach((el, i) => interval(el, i));
-console.log(result.trim());
 
 function interval([...item], i) {
+  if (i === 0) return;
   const count = item.splice(0, 2)[0];
-  result += (i !== 0 ? "\n" : "") + item.reduce((acc, cur) => acc + cur.repeat(count), "");
+  console.log(item.reduce((acc, cur) => acc + cur.repeat(count), ""));
 }
