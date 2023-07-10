@@ -11,15 +11,14 @@ let result = 0;
 data.forEach((el, i, arr) => {
   const newArr = [];
   const str = el.split("");
-  let a = true;
   for (let i = 0; i < str.length; i++) {
     if (str[i] !== str[i + 1]) {
       if (newArr.includes(str[i])) {
-        a = false;
+        return;
       }
       newArr.push(str[i]);
     }
   }
-  result += a ? 1 : 0;
+  result += 1;
 });
 console.log(result);
