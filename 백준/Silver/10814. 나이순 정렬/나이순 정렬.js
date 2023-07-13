@@ -6,17 +6,13 @@ const input = fs
   .split("\n");
 
 const arr = input.slice(1).map((el, i) => {
-  const user = el.split(" ");
-  return { age: user[0], name: user[1], key: i };
+  const [age, name] = el.split(" ");
+  return { age: parseInt(age), name, key: i };
 });
 
-let answer = "";
-
-arr
-  .sort((a, b) => {
-    if (a.age !== b.age) return a.age - b.age;
-    else a.index - b.index;
-  })
-  .forEach((el) => (answer += el.age + " " + el.name + "\n"));
+const answer = arr
+  .sort((a, b) => a.age - b.age || a.key - b.key)
+  .map((el) => `${el.age} ${el.name}`)
+  .join("\n");
 
 console.log(answer);
