@@ -1,30 +1,3 @@
-// const fs = require("fs");
-// const input = fs
-//   .readFileSync(process.platform === "linux" ? "/dev/stdin" : "./test.txt")
-//   .toString()
-//   .trim()
-//   .split("\n");
-
-// function solution(n, lost, reserve) {
-//   var answer = 0;
-//   const clash = reserve.filter((el) => lost.includes(el));
-//   lost = lost.filter((el) => !clash.includes(el));
-//   reserve = reserve.filter((el) => !clash.includes(el));
-
-//   for (let i = 0; i < lost.length; i++) {
-//     const left = reserve.indexOf(lost[i] - 1);
-//     const right = reserve.indexOf(lost[i] + 1);
-//     if (left !== -1) {
-//       reserve.splice(left, 1);
-//       answer++;
-//     } else if (right !== -1) {
-//       reserve.splice(right, 1);
-//       answer++;
-//     }
-//   }
-//   return n - lost.length + answer;
-// }
-
 function solution(n, lost, reserve) {
   const clash = reserve.filter((el) => lost.includes(el));
   lost = lost.filter((el) => !clash.includes(el));
