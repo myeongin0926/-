@@ -12,7 +12,7 @@ let price = 0;
 let streetCur = 0;
 
 while (streetCur < street.length) {
-  if (prices[streetCur] < prices[streetCur + 1]) {
+  if (prices[streetCur] < prices[streetCur + 1] && streetCur + 1 !== street.length) {
     // 현재 주유소가 다음 주유소보다 가격이 싸다면
     price += prices[streetCur] * (street[streetCur] + street[streetCur + 1]);
     streetCur += 2;
