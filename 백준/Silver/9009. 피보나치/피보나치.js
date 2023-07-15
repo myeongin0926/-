@@ -12,15 +12,12 @@ const fibo = data.map((el, i) => {
   while (fibo.at(-1) + fibo.at(-2) <= data[i]) fibo.push(fibo.at(-1) + fibo.at(-2));
   return fibo.sort((a, b) => b - a);
 });
-
 data.forEach((cur, i) => {
-  const curFibo = fibo[i];
-  let result = [];
-  for (let i = 0; i < curFibo.length; i++) {
-    if (cur - curFibo[i] >= 0) {
-      cur -= curFibo[i];
-      result.push(curFibo[i]);
-    }
-  }
-  console.log(result.slice(0, -1).reverse().join(" "));
+  console.log(
+    fibo[i]
+      .filter((el) => (cur - el >= 0 ? ((cur -= el), true) : false))
+      .reverse()
+      .slice(1)
+      .join(" ")
+  );
 });
