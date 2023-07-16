@@ -8,17 +8,7 @@ const input = fs
 let data = input.slice(1).map((el) => el.split(""));
 
 function palindrome(arr) {
-  let left = 0;
-  let right = arr.length - 1;
-  for (let i = 0; i < ~~(arr.length / 2); i++) {
-    if (arr[left] !== arr[right]) return false;
-    left++;
-    right--;
-  }
-  return true;
-}
-
-function pseudosocialSentence(arr) {
+  let answer = 0;
   let left = 0;
   let right = arr.length - 1;
   for (let i = 0; i < ~~(arr.length / 2); i++) {
@@ -26,41 +16,32 @@ function pseudosocialSentence(arr) {
       left++;
       right--;
     } else if (arr[left] !== arr[right]) {
+      let result = false;
       let subLeft = left + 1;
       let subRight = right;
-      if (subLeft === subRight) return true;
-      while (subLeft < subRight) {
-        if (arr[subLeft] !== arr[subRight]) {
-          break;
-        } else if (subLeft < subRight) {
+      if (subLeft === subRight) {
+        answer = 1;
+      } else {
+        while (subLeft < subRight) {
+          if (arr[subLeft] !== arr[subRight]) break;
           subLeft++;
           subRight--;
+          if (subLeft >= subRight) result = true;
         }
-        if (subLeft >= subRight) {
-          return true;
-        }
-      }
-      subLeft = left;
-      subRight = right - 1;
-      while (subLeft < subRight) {
-        if (arr[subLeft] !== arr[subRight]) {
-          break;
-        } else if (subLeft < subRight) {
+        subLeft = left;
+        subRight = right - 1;
+        while (subLeft < subRight) {
+          if (arr[subLeft] !== arr[subRight]) break;
           subLeft++;
           subRight--;
+          if (subLeft >= subRight) result = true;
         }
-        if (subLeft >= subRight) {
-          return true;
-        }
+        answer = result ? 1 : 2;
+        break;
       }
-      return false;
     }
   }
-  return false;
+  return !answer ? 0 : answer === 1 ? 1 : 2;
 }
 
-data.forEach((el) => {
-  if (palindrome(el)) console.log(0);
-  else if (pseudosocialSentence(el)) console.log(1);
-  else console.log(2);
-});
+data.forEach((el) => console.log(palindrome(el)));
