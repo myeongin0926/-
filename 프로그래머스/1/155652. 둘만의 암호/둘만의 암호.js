@@ -1,5 +1,5 @@
 function solution(s, skip, index) {
-    const str = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+    const str = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
     var answer = '';
     s = s.split('')
     for(let i = 0; i < s.length; i++) {
