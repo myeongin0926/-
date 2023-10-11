@@ -1,6 +1,6 @@
 # [level 1] 둘만의 암호 - 155652 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/155652#) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/155652) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 10월 4일 0:3:3
+2023년 10월 4일 0:4:37
 
 ### 문제 설명
 
