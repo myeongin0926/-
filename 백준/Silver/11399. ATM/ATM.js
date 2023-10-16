@@ -1,18 +1,17 @@
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().split("\n");
 
-let fs = require("fs");
-let input = fs.readFileSync("/dev/stdin").toString().split("\n");
+let [n] = input[0].split(" ")
+let data = input[1].split(" ").map(Number);
 
-let n = Number(input[0]);
-let arr = input[1].split(" ").map(Number);
-
-arr.sort((a, b) => a - b);
+data.sort((a,b) => a - b);
 
 let answer = 0;
-let summary = 0;
+let sum = 0;
 
 for (let i = 0; i < n; i++) {
-  summary += arr[i];
-  answer += summary;
+  sum += data[i];
+  answer += sum;
 }
 
 console.log(answer);
