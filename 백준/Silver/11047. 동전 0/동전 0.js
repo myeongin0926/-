@@ -1,24 +1,14 @@
 const fs = require("fs");
-const input = fs
-  .readFileSync(process.platform === "linux" ? "/dev/stdin" : "./test.txt")
-  .toString()
-  .trim()
-  .split("\n");
+const input = fs.readFileSync("dev/stdin").toString().trim().split("\n");
 
-const money = +input[0].split(" ")[1];
-const coins = input
-  .slice(1)
-  .map(Number)
-  .sort((a, b) => b - a);
+let [n, cash] = input[0].split(" ").map(Number);
+let data = input.slice(1);
 
-console.log(coinCounter1(money));
+let count = 0;
 
-function coinCounter1(money) {
-  if (money < 0) return 0;
-  let result = 0;
-  for (const coin of coins) {
-    result += Math.floor(money / coin);
-    money %= coin;
-  }
-  return result;
+for (let i = n - 1; i >= 0; i--) {
+  count += Math.floor(cash / data[i]);
+  cash %= data[i];
 }
+
+console.log(count);
