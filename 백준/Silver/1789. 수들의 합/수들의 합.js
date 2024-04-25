@@ -1,21 +1,13 @@
 const fs = require("fs");
-const input = fs
-  .readFileSync(process.platform === "linux" ? "/dev/stdin" : "./test.txt")
-  .toString()
-  .trim()
-  .split("\n");
+let input = fs.readFileSync("./dev/stdin").toString().split("\n");
 
-const data = +input[0];
-
-let result = 0;
+const n = +input[0];
 let sum = 0;
-let i = 0;
+let current = 0;
 
-while (result < data) {
-  if (result + i > data) break;
-  else {
-    result += i;
-    i++;
-  }
+while (sum <= n) {
+  current++;
+  sum += current;
 }
-console.log(i - 1);
+
+console.log(current - 1);
